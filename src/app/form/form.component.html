@@ -1,0 +1,59 @@
+<div class="col-md-12 d-flex justify-content-center">
+  <div class="col-md-5 form-div">
+    <form [formGroup]="newStudent" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="exampleFormControlInput1">First name</label>
+        <input type="text" class="form-control" id="exampleFormControlInput1" formControlName="firstname">
+      </div>
+      <span class="help-block" *ngIf="!newStudent.get('firstname').valid && newStudent.get('firstname').touched">
+        <small class="help-block" *ngIf="newStudent.get('firstname').errors['required']">This firstname is required.</small>
+      </span>
+      <div class="form-group">
+        <label for="exampleFormControlInput1">Last name</label>
+        <input type="text" class="form-control" id="exampleFormControlInput1" formControlName="lastname">
+      </div>
+      <span class="help-block" *ngIf="!newStudent.get('lastname').valid && newStudent.get('lastname').touched">
+        <small class="help-block" *ngIf="newStudent.get('lastname').errors['required']">This lastname is required.</small>
+      </span>
+      <div class="form-group">
+        <label for="exampleFormControlInput1">E-mail</label>
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="example@example.com" formControlName="email">
+      </div>
+      <div *ngFor="let stud of students">
+          <small *ngIf="stud.email == newStudent.get('email').value && newStudent.get('email').touched" class="help-block">
+            E-mail already exists.
+          </small>
+      </div>
+      <small class="help-block" *ngIf="!newStudent.get('email').valid && newStudent.get('email').touched">Please enter a valid email.</small>
+      <div class="form-group">
+        <label for="exampleFormControlInput1">College</label>
+        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Ex.Engineer" formControlName="college">
+      </div>
+      <span class="help-block" *ngIf="!newStudent.get('college').valid && newStudent.get('college').touched">
+        <small class="help-block" *ngIf="newStudent.get('college').errors['required']">This college is required.</small>
+      </span>
+      <div class="form-group">
+        <label for="exampleFormControlInput1">Major</label>
+        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Ex.Architecture" formControlName="major">
+      </div>
+      <span class="help-block" *ngIf="!newStudent.get('major').valid && newStudent.get('major').touched">
+        <small class="help-block" *ngIf="newStudent.get('major').errors['required']">This major is required.</small>
+      </span>
+      <div class="form-group">
+        <label for="exampleFormControlInput1">Country</label>
+        <input type="text" class="form-control" id="exampleFormControlInput1" formControlName="country">
+      </div>
+      <span class="help-block" *ngIf="!newStudent.get('country').valid && newStudent.get('country').touched">
+        <small class="help-block" *ngIf="newStudent.get('country').errors['required']">This country is required.</small>
+      </span>
+      <div class="form-group">
+        <label for="exampleFormControlInput1">City</label>
+        <input type="text" class="form-control" id="exampleFormControlInput1" formControlName="city">
+      </div>
+      <span class="help-block" *ngIf="!newStudent.get('city').valid && newStudent.get('city').touched">
+        <small class="help-block" *ngIf="newStudent.get('city').errors['required']">This city is required.</small>
+      </span><br>
+      <button type="submit" class="btn btn-primary btn-md btn-block">Add Student</button>
+    </form>
+  </div>
+</div>

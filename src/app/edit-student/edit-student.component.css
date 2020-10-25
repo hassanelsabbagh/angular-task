@@ -1,0 +1,14 @@
+input.ng-invalid.ng-touched{
+	border: 1px solid red;
+}
+ small{
+ 	font-weight: bold;
+ 	color: red;
+ }
+
+ .form-div{
+    background-color: #DCDCDC;
+    border-radius: 11px;
+    padding-top: 30px;
+    padding-bottom: 30px
+ }
